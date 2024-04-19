@@ -11,11 +11,12 @@ const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null); // State for holding error message
+    axios.defaults.withCredentials = true;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/user/login', { email, password });
+            const response = await axios.post('https://deploy-mern-api-taupe.vercel.app/login', { email, password });
             console.log('Login response:', response.data); // Log the response data
             const { role } = response.data;
             await dispatch(login({ email, password }));
