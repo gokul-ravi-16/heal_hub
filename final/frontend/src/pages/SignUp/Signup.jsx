@@ -8,7 +8,7 @@ import signupImage from '../../assets/c3.png'; // Import your image file
 const Signup = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -22,7 +22,7 @@ const Signup = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/user/register', userData);
+      const response = await axios.post('https://deploy-mern-api-taupe.vercel.app/register', userData);
       setSuccessMessage('User registered successfully!');
       // You can optionally reset the form here if needed
     } catch (error) {
