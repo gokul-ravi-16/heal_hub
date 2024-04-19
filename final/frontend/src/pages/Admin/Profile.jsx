@@ -16,7 +16,7 @@ const Profile = () => {
     useEffect(() => {
         const email = localStorage.getItem('email');
         if (email) {
-            axios.get(`http://localhost:3000/api/user/getUserByEmail/${email}`)
+            axios.get(`https://deploy-mern-api-taupe.vercel.app/getUserByEmail/${email}`)
                 .then(response => setUser(response.data))
                 .catch(error => console.error('Error fetching user:', error));
         }
@@ -46,9 +46,9 @@ const Profile = () => {
         e.preventDefault();
         const email = localStorage.getItem('email');
         try {
-            await axios.put(`http://localhost:3000/api/user/updateUser/${email}`, formData);
+            await axios.put(`https://deploy-mern-api-taupe.vercel.app/pdateUser/${email}`, formData);
             // Fetch user details again after update
-            axios.get(`http://localhost:3000/api/user/getUserByEmail/${email}`)
+            axios.get(`https://deploy-mern-api-taupe.vercel.app/getUserByEmail/${email}`)
                 .then(response => {
                     setUser(response.data);
                     setShowSuccessModal(true);
