@@ -46,7 +46,7 @@ const ChangePassword = () => {
     setError('');
 
     try {
-      const loginResponse = await axios.post('http://localhost:3000/api/user/login', {
+      const loginResponse = await axios.post('https://deploy-mern-api-taupe.vercel.app/login', {
         email: formData.email,
         password: formData.currentPassword
       });
@@ -56,7 +56,7 @@ const ChangePassword = () => {
 
       // If login is successful, proceed with updating the password
       if (loginResponse.status === 200) {
-        const updateResponse = await axios.put(`http://localhost:3000/api/user/updatePasswordByEmail/${formData.email}`, formData);
+        const updateResponse = await axios.put(`https://deploy-mern-api-taupe.vercel.app/updatePasswordByEmail/${formData.email}`, formData);
         
         // Log update response
         console.log("Update response:", updateResponse);
