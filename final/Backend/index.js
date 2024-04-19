@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 // Load environment variables from .env file
 dotenv.config({ path: './Routes/.env' });  
-mongoose.connect('mongodb+srv://gokulravi221600:<password>@cluster0.r20ki9s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://gokulravi221600:<password>@cluster0.r20ki9s.mongodb.net/?retryWrites=true&w=majority')
 // Connect to the database
 
 app.use(bodyParser.json());  
