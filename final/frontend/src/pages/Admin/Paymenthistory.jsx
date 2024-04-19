@@ -9,7 +9,7 @@ const Paymenthistory = () => {
     // Fetch payment history data from the backend
     const fetchPaymentHistory = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/user/payment-history');
+        const response = await axios.get('https://deploy-mern-api-taupe.vercel.app/payment-history');
         setPaymentHistory(response.data);
       } catch (error) {
         console.error('Error fetching payment history:', error);
