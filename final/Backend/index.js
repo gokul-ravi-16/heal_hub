@@ -23,7 +23,6 @@ app.use(express.static('public'));
 dotenv.config({ path: './Routes/.env' });  
 mongoose.connect('mongodb+srv://gokulravi221600:<password>@cluster0.r20ki9s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 // Connect to the database
-dbConnect();
 
 
 app.use(bodyParser.json());  
