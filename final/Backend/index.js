@@ -7,14 +7,21 @@ const cors = require('cors');
 
  
 const app = express();
-app.use(cors());
+app.use(cors({
+ origin : ["https://healhubweb.vercel.app/"],
+ methods : ["POST","GET"],
+ credentials : true
+}
+            ));
+
+
 const{notFound, errorHandler} = require('./Middlewares/errorHandler');
 app.use(express.static('public'));
   // Initialize express app here
 
 // Load environment variables from .env file
 dotenv.config({ path: './Routes/.env' });  
-
+mongoose.connect('mongodb+srv://gokulravi221600:<password>@cluster0.r20ki9s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 // Connect to the database
 dbConnect();
 
