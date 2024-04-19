@@ -22,7 +22,7 @@ const AddProduct = () => {
       formData.append('type', type);
       formData.append('productImage', productImage);
 
-      const response = await axios.post('http://localhost:3000/api/user/product', formData, {
+      const response = await axios.post('https://deploy-mern-api-taupe.vercel.app/product', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
