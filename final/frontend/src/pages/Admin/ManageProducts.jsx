@@ -8,7 +8,7 @@ const ManageProducts = () => {
   useEffect(() => {
     const fetchUsersCarts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/user/getAllUsersCarts');
+        const response = await axios.get('https://deploy-mern-api-taupe.vercel.app/getAllUsersCarts');
         setUsersCarts(response.data);
       } catch (error) {
         console.error('Error fetching users\' carts:', error);
@@ -34,12 +34,12 @@ const ManageProducts = () => {
         return userCart;
       });
 
-      await axios.put(`http://localhost:3000/api/user/updateUserCart/${email}`, {
+      await axios.put(`https://deploy-mern-api-taupe.vercel.app/updateUserCart/${email}`, {
         cartItems: updatedCart.find((userCart) => userCart.email === email).cart,
       });
 
       // Refresh the users' carts
-      const response = await axios.get('http://localhost:3000/api/user/getAllUsersCarts');
+      const response = await axios.get('https://deploy-mern-api-taupe.vercel.app/getAllUsersCarts');
       setUsersCarts(response.data);
     } catch (error) {
       console.error('Error approving order:', error);
