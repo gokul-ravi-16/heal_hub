@@ -14,7 +14,7 @@ const ManageUser = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/user/getAllUsers');
+      const response = await axios.get('https://deploy-mern-api-taupe.vercel.app/getAllUsers');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -26,7 +26,7 @@ const ManageUser = () => {
     const isConfirmed = window.confirm('Are you sure you want to delete this user?');
     if (isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3000/api/user/deleteUser/${userId}`);
+        await axios.delete(`https://deploy-mern-api-taupe.vercel.app/deleteUser/${userId}`);
         // After successful deletion, fetch updated user list
         fetchUsers();
         setShowDeleteModal(true);
