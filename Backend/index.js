@@ -8,11 +8,14 @@ const cors = require('cors');
  
 const app = express();
 app.use(cors(
+ origin: ["https://deploy-mern-frontend.vercel.app"],
+ methods: ["POST", "GET"],
+ credentials: true
 ));
 const{notFound, errorHandler} = require('./Middlewares/errorHandler');
 app.use(express.static('public'));
   // Initialize express app here
-
+mongoose.connect("mongodb+srv://gokulravi221600:Healhub2024@cluster0.r20ki9s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 // Load environment variables from .env file
 dotenv.config({ path: './Routes/.env' });  
 
